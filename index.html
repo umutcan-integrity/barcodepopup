@@ -1,0 +1,738 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Eczane Barkod Popup</title>
+<meta name="description" content="Eczanede ilaç okutulduğunda ekranın köşesinde, o ilaçla birlikte önerilebilecek ürünleri gerekçeleri ve danışmanlık notlarıyla gösteren Windows uygulaması.">
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* Tek, açık renk tema: nane – turkuaz zemin üzerinde buzlu cam paneller */
+:root {
+  color-scheme: light;
+  --ink: #0E2A22;
+  --ink-2: #2E4A41;
+  --muted: #5B756C;
+  --green: #0B9B61;
+  --green-deep: #067A4C;
+  --mint: #D8F6E8;
+  --aqua: #D3F1F6;
+  --lilac: #ECE6FF;
+  --peach: #FFE9DE;
+  --amber: #B7640A;
+  --amber-bg: rgba(255, 236, 196, .75);
+  --glass: rgba(255, 255, 255, .56);
+  --glass-line: rgba(255, 255, 255, .85);
+  --shadow: 0 1px 1px rgba(14, 60, 44, .04), 0 18px 44px -18px rgba(8, 94, 64, .28);
+  --shadow-lg: 0 2px 4px rgba(14, 60, 44, .05), 0 30px 70px -24px rgba(8, 94, 64, .35);
+  --grad: linear-gradient(135deg, #0B9B61 0%, #0FB5A0 100%);
+  --f-body: "Plus Jakarta Sans", "Segoe UI", system-ui, sans-serif;
+  --f-mono: "IBM Plex Mono", "Cascadia Mono", Consolas, monospace;
+  --radius: 22px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--ink);
+  font: 400 16px/1.65 var(--f-body);
+  -webkit-font-smoothing: antialiased;
+  background-color: #EEF9F4;
+  background-image:
+    radial-gradient(900px 600px at 8% -5%, var(--mint), transparent 60%),
+    radial-gradient(800px 600px at 100% 8%, var(--aqua), transparent 60%),
+    radial-gradient(700px 500px at 70% 55%, var(--lilac), transparent 60%),
+    radial-gradient(700px 520px at 0% 75%, var(--peach), transparent 60%),
+    radial-gradient(900px 600px at 90% 100%, var(--mint), transparent 60%);
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+a { color: var(--green-deep); }
+:focus-visible { outline: 2.5px solid var(--green); outline-offset: 3px; border-radius: 10px; }
+.wrap { max-width: 1160px; margin: 0 auto; padding-inline: 20px; position: relative; }
+.mono { font-family: var(--f-mono); }
+h1, h2, h3 { margin: 0; text-wrap: balance; letter-spacing: -.02em; color: var(--ink); }
+h2 { font-size: clamp(30px, 4.2vw, 44px); font-weight: 800; line-height: 1.08; }
+h3 { font-size: 18.5px; font-weight: 700; line-height: 1.3; letter-spacing: -.01em; }
+p { margin: 0; }
+.lede { color: var(--ink-2); font-size: 18px; max-width: 58ch; }
+
+/* Cam yüzey */
+.glass {
+  background: var(--glass);
+  -webkit-backdrop-filter: blur(18px) saturate(1.5);
+  backdrop-filter: blur(18px) saturate(1.5);
+  border: 1px solid var(--glass-line);
+  box-shadow: var(--shadow), inset 0 1px 0 rgba(255, 255, 255, .9);
+  border-radius: var(--radius);
+}
+
+.pill-label {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 14px 6px 8px; border-radius: 999px;
+  font: 600 12.5px/1 var(--f-body); letter-spacing: .02em; color: var(--green-deep);
+  background: rgba(255, 255, 255, .7); border: 1px solid var(--glass-line);
+  box-shadow: 0 6px 18px -10px rgba(8, 94, 64, .4);
+}
+.pill-label i {
+  width: 22px; height: 22px; border-radius: 50%;
+  display: grid; place-items: center; background: var(--grad); color: #fff; font-style: normal;
+}
+.pill-label i svg { width: 12px; height: 12px; }
+
+/* Süsleme: yüzen kapsül ve tabletler */
+.deco { position: absolute; pointer-events: none; z-index: 0; }
+.capsule {
+  width: 120px; height: 46px; border-radius: 999px;
+  background: linear-gradient(90deg, #10B981 0 50%, #FFFFFF 50% 100%);
+  box-shadow: inset 0 -8px 14px rgba(0, 0, 0, .10), inset 0 8px 12px rgba(255, 255, 255, .7), 0 16px 30px -12px rgba(8, 94, 64, .45);
+  opacity: .9;
+}
+.capsule.c2 { background: linear-gradient(90deg, #F87171 0 50%, #FFF5F5 50% 100%); box-shadow: inset 0 -8px 14px rgba(0,0,0,.08), inset 0 8px 12px rgba(255,255,255,.7), 0 16px 30px -12px rgba(224, 54, 74, .4); }
+.capsule.c3 { background: linear-gradient(90deg, #38BDF8 0 50%, #F0FAFF 50% 100%); box-shadow: inset 0 -8px 14px rgba(0,0,0,.08), inset 0 8px 12px rgba(255,255,255,.7), 0 16px 30px -12px rgba(14, 116, 144, .4); }
+.tablet {
+  width: 64px; height: 64px; border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #FFFFFF, #E7F3EE 60%, #CFE6DC);
+  box-shadow: inset 0 -6px 10px rgba(0, 0, 0, .06), 0 14px 26px -12px rgba(8, 94, 64, .45);
+}
+.tablet::after { content: ""; position: absolute; left: 12%; right: 12%; top: calc(50% - 1px); height: 2px; background: rgba(14, 42, 34, .12); border-radius: 2px; }
+.float { animation: float 9s ease-in-out infinite; }
+.float.slow { animation-duration: 13s; }
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(var(--r, 0deg)); }
+  50% { transform: translateY(-14px) rotate(calc(var(--r, 0deg) + 6deg)); }
+}
+
+/* Üst menü: yüzen cam hap */
+.top {
+  position: sticky; top: calc(env(safe-area-inset-top, 0px) + 14px);
+  z-index: 20; padding-inline: 20px;
+}
+.top-inner {
+  max-width: 1120px; margin: 14px auto 0;
+  display: flex; align-items: center; gap: 24px;
+  padding: 10px 10px 10px 16px; border-radius: 999px;
+}
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); font-weight: 800; font-size: 16.5px; letter-spacing: -.01em; }
+.brand img { width: 30px; height: 30px; filter: drop-shadow(0 4px 8px rgba(8, 94, 64, .3)); }
+.nav { display: flex; gap: 6px; margin-left: auto; }
+.nav a { color: var(--ink-2); text-decoration: none; font-size: 14.5px; font-weight: 600; padding: 8px 14px; border-radius: 999px; transition: background-color .2s; }
+.nav a:hover { background: rgba(255, 255, 255, .8); color: var(--green-deep); }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  padding: 14px 24px; border-radius: 999px;
+  font: 700 15px/1 var(--f-body); text-decoration: none; cursor: pointer;
+  border: 1px solid transparent;
+  transition: transform .2s, box-shadow .2s, background-color .2s;
+}
+.btn-primary { background: var(--grad); color: #fff; box-shadow: 0 12px 26px -10px rgba(11, 155, 97, .7), inset 0 1px 0 rgba(255,255,255,.35); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 18px 32px -12px rgba(11, 155, 97, .75), inset 0 1px 0 rgba(255,255,255,.35); }
+.btn-glass { background: rgba(255, 255, 255, .7); color: var(--ink); border-color: var(--glass-line); box-shadow: 0 8px 22px -14px rgba(8, 94, 64, .5); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
+.btn-glass:hover { background: rgba(255, 255, 255, .92); transform: translateY(-2px); }
+.btn-sm { padding: 10px 18px; font-size: 14px; }
+.btn svg { width: 18px; height: 18px; flex: none; }
+
+/* Hero */
+.hero { position: relative; padding-block: 64px 40px; }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 48px; align-items: center; position: relative; z-index: 1; }
+.hero h1 { font-size: clamp(36px, 4.6vw, 56px); font-weight: 800; line-height: 1.02; letter-spacing: -.035em; margin-block: 20px 22px; }
+.hero h1 .grad { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+.hero-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+.tag { font: 500 12.5px/1 var(--f-mono); color: var(--ink-2); padding: 8px 12px; border-radius: 999px; background: rgba(255, 255, 255, .6); border: 1px solid var(--glass-line); }
+
+.stage { position: relative; padding: 26px; min-height: 600px; overflow: hidden; }
+.stage::before {
+  /* eczane haçı filigranı */
+  content: ""; position: absolute; right: -20px; top: -20px; width: 200px; height: 200px; opacity: .10;
+  background:
+    linear-gradient(var(--green), var(--green)) center / 34% 100% no-repeat,
+    linear-gradient(var(--green), var(--green)) center / 100% 34% no-repeat;
+  transform: rotate(8deg);
+}
+.box {
+  position: relative; z-index: 1;
+  width: min(236px, 44%);
+  background: linear-gradient(160deg, #FFFFFF 0%, #F1FAF6 100%);
+  border-radius: 14px;
+  padding: 16px 16px 12px;
+  box-shadow: var(--shadow-lg);
+  transform: rotate(-4deg);
+  border: 1px solid #fff;
+}
+.box::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 8px; border-radius: 14px 14px 0 0; background: linear-gradient(90deg, #EF4444, #F97316); }
+.box-name { font-weight: 800; font-size: 21px; letter-spacing: -.02em; margin-top: 4px; }
+.box-sub { font: 500 11px/1.4 var(--f-mono); color: var(--muted); margin: 2px 0 10px; }
+.barcode { position: relative; }
+.barcode svg { display: block; width: 100%; height: auto; }
+.barcode svg rect { fill: #0E2A22; }
+.barcode svg text { fill: #0E2A22; font: 500 9px var(--f-mono); }
+.scanline {
+  position: absolute; left: -6%; right: -6%; top: 45%;
+  height: 2px; background: #FF2D55; border-radius: 2px;
+  box-shadow: 0 0 12px 3px rgba(255, 45, 85, .55);
+  animation: scan 2.6s ease-in-out infinite;
+}
+@keyframes scan { 0%, 100% { top: 8%; } 50% { top: 78%; } }
+
+.chip-float {
+  position: absolute; z-index: 3; display: flex; align-items: center; gap: 10px;
+  padding: 10px 14px; border-radius: 16px; font-size: 13px; font-weight: 600; color: var(--ink);
+  background: rgba(255, 255, 255, .72);
+}
+.chip-float b { display: block; font-size: 15px; font-weight: 800; }
+.chip-float small { display: block; font-weight: 500; color: var(--muted); font-size: 12px; line-height: 1.2; }
+.ico {
+  width: 34px; height: 34px; border-radius: 11px; display: grid; place-items: center; flex: none;
+  background: var(--grad); color: #fff; box-shadow: 0 8px 16px -8px rgba(11, 155, 97, .8);
+}
+.ico svg { width: 18px; height: 18px; }
+.ico.red { background: linear-gradient(135deg, #F43F5E, #FB923C); box-shadow: 0 8px 16px -8px rgba(244, 63, 94, .8); }
+.ico.blue { background: linear-gradient(135deg, #3B82F6, #06B6D4); box-shadow: 0 8px 16px -8px rgba(59, 130, 246, .8); }
+.ico.violet { background: linear-gradient(135deg, #8B5CF6, #EC4899); box-shadow: 0 8px 16px -8px rgba(139, 92, 246, .8); }
+.ico.amber { background: linear-gradient(135deg, #F59E0B, #F97316); box-shadow: 0 8px 16px -8px rgba(245, 158, 11, .8); }
+.cf1 { left: 18px; bottom: 26px; max-width: 150px; }
+.cf2 { left: 50%; top: 30px; }
+
+/* Uygulamadaki popup kartının birebir karşılığı */
+.popup {
+  position: absolute; z-index: 2;
+  right: 22px; bottom: 26px;
+  width: min(360px, calc(100% - 44px));
+  background: #FFFFFF;
+  border-radius: 12px;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 30px 60px -20px rgba(15, 23, 42, .35), 0 4px 10px rgba(15, 23, 42, .06);
+  overflow: hidden;
+  font-family: "Segoe UI Variable Text", "Segoe UI", var(--f-body);
+  color: #0F172A;
+  animation: slide-in .8s cubic-bezier(.2, .8, .2, 1) .3s both;
+}
+@keyframes slide-in { from { transform: translateX(30px); opacity: 0; } to { transform: none; opacity: 1; } }
+.popup-accent { height: 4px; background: #2563EB; }
+.popup-body { padding: 12px 14px 14px 18px; display: grid; gap: 8px; }
+.popup-head { display: flex; align-items: center; justify-content: space-between; }
+.cap { font-size: 11px; font-weight: 600; color: #64748B; letter-spacing: .02em; }
+.x { width: 24px; height: 24px; display: grid; place-items: center; color: #64748B; }
+.x svg { width: 10px; height: 10px; }
+.pname { font-size: 16px; font-weight: 600; line-height: 1.25; }
+.psub { font-size: 12px; color: #64748B; margin-top: -4px; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font-size: 11.5px; font-weight: 600; padding: 2px 7px 3px; border-radius: 6px; background: #F1F5F9; color: #334155; }
+.chip.info { background: #DBEAFE; color: #2563EB; }
+.chip.ok { background: #DCFCE7; color: #16A34A; }
+.pnote { background: #FEF3C7; color: #92400E; border-radius: 8px; padding: 8px 10px; display: flex; gap: 8px; font-size: 12px; line-height: 1.45; }
+.pnote svg { width: 14px; height: 14px; flex: none; margin-top: 2px; color: #D97706; }
+.pnote p + p { margin-top: 3px; }
+.sugs { display: grid; gap: 8px; margin-top: 2px; }
+.sug { display: grid; grid-template-columns: 64px 1fr 10px; gap: 10px; align-items: start; }
+.kind { font-size: 11px; font-weight: 600; text-align: center; padding: 2px 6px 3px; border-radius: 6px; }
+.k-takviye { background: #F3E8FF; color: #6B21A8; }
+.k-vitamin { background: #FEF9C3; color: #854D0E; }
+.sug b { display: block; font-size: 13px; font-weight: 600; line-height: 1.3; }
+.sug span { display: block; font-size: 12px; color: #64748B; line-height: 1.35; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: #16A34A; margin-top: 6px; }
+.pfoot { display: flex; align-items: center; justify-content: space-between; margin-top: 2px; }
+.pfoot small { font-size: 11px; color: #64748B; }
+.pbtn { font-size: 12.5px; font-weight: 600; background: #2563EB; color: #fff; padding: 6px 14px; border-radius: 6px; }
+.countdown { height: 3px; background: rgba(37, 99, 235, .55); transform-origin: left; animation: countdown 8s linear 1.1s infinite; }
+@keyframes countdown { from { transform: scaleX(1); } to { transform: scaleX(0); } }
+
+/* Sayılar */
+.stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-top: 48px; position: relative; z-index: 1; }
+.stat { padding: 20px 22px; display: flex; gap: 14px; align-items: center; }
+.stat b { display: block; font-size: 28px; font-weight: 800; letter-spacing: -.03em; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.stat span { font-size: 13.5px; color: var(--muted); font-weight: 500; line-height: 1.3; }
+
+/* Bölümler */
+section { position: relative; padding-block: 76px; }
+.section-head { display: grid; gap: 14px; margin-bottom: 40px; justify-items: start; }
+
+.steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.step { padding: 26px; display: grid; gap: 12px; align-content: start; position: relative; }
+.step-num {
+  position: absolute; top: 18px; right: 22px;
+  font: 800 54px/1 var(--f-body); letter-spacing: -.04em;
+  background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; opacity: .28;
+}
+.step p { color: var(--ink-2); }
+.figure { font: 500 12.5px/1.5 var(--f-mono); color: var(--muted); padding-top: 12px; border-top: 1px dashed rgba(14, 42, 34, .14); }
+.figure strong { color: var(--green-deep); font-weight: 600; }
+
+.features { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+.feature { padding: 24px; display: grid; gap: 12px; align-content: start; transition: transform .25s, box-shadow .25s; }
+.feature:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg), inset 0 1px 0 rgba(255,255,255,.9); }
+.feature .ico { width: 46px; height: 46px; border-radius: 15px; }
+.feature .ico svg { width: 23px; height: 23px; }
+.feature p { color: var(--ink-2); font-size: 15px; }
+.feature.wide { grid-column: span 2; }
+
+/* Karekod */
+.gs1 { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 28px; padding: 34px; align-items: start; }
+.gs1-raw {
+  font: 600 clamp(13px, 1.6vw, 15.5px)/2 var(--f-mono);
+  background: rgba(255, 255, 255, .75); border: 1px solid var(--glass-line);
+  border-radius: 16px; padding: 16px 18px; word-break: break-all; margin-top: 8px;
+}
+.ai { color: var(--muted); font-weight: 500; }
+.seg { border-radius: 6px; padding: 2px 4px; }
+.v01 { background: #DBEAFE; color: #1D4ED8; }
+.v21 { background: #F3E8FF; color: #7E22CE; }
+.v17 { background: #FEF3C7; color: #A16207; }
+.v10 { background: #D1FAE5; color: #047857; }
+.gs1-rows { display: grid; gap: 10px; }
+.gs1-row { display: grid; grid-template-columns: 52px 1fr auto; gap: 12px; align-items: center; padding: 12px 16px; border-radius: 14px; background: rgba(255, 255, 255, .7); border: 1px solid var(--glass-line); }
+.gs1-row .code { font: 600 12px/1 var(--f-mono); padding: 6px 0; text-align: center; border-radius: 8px; }
+.gs1-row .val { font: 600 14px/1.2 var(--f-mono); font-variant-numeric: tabular-nums; }
+.gs1-row span { font-size: 14.5px; font-weight: 500; color: var(--ink-2); }
+.gs1-note { margin-top: 14px; color: var(--muted); font-size: 14px; }
+
+/* Güvenlik */
+.safety { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.case { padding: 24px; display: grid; gap: 14px; align-content: start; }
+.case .drug { display: inline-flex; align-items: center; gap: 8px; font: 500 12.5px/1.2 var(--f-mono); color: var(--muted); }
+.case .drug::before { content: ""; width: 26px; height: 10px; border-radius: 99px; background: linear-gradient(90deg, #10B981 50%, #fff 50%); box-shadow: inset 0 0 0 1px rgba(14,42,34,.12); }
+.case:nth-child(2) .drug::before { background: linear-gradient(90deg, #38BDF8 50%, #fff 50%); }
+.case:nth-child(3) .drug::before { background: linear-gradient(90deg, #F87171 50%, #fff 50%); }
+.case .rule { background: var(--amber-bg); color: #6B3A06; border-radius: 14px; padding: 12px 14px; font-size: 14px; line-height: 1.55; border: 1px solid rgba(255, 255, 255, .8); display: flex; gap: 10px; }
+.case .rule svg { width: 16px; height: 16px; flex: none; margin-top: 3px; color: var(--amber); }
+.disclaimer { margin-top: 22px; font-size: 14px; color: var(--muted); max-width: 72ch; }
+
+/* İndir */
+.download { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 28px; align-items: start; }
+.dl-card { padding: 30px; display: grid; gap: 20px; position: relative; overflow: hidden; }
+.dl-card::after {
+  content: ""; position: absolute; width: 260px; height: 260px; right: -80px; top: -90px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(15, 181, 160, .35), transparent 70%);
+}
+.dl-card > * { position: relative; z-index: 1; }
+.file { display: flex; align-items: center; gap: 16px; }
+.file img { width: 56px; height: 56px; filter: drop-shadow(0 8px 14px rgba(8, 94, 64, .35)); }
+.file b { display: block; font-size: 17px; font-weight: 800; letter-spacing: -.01em; word-break: break-all; }
+.file span { font: 500 12.5px/1.4 var(--f-mono); color: var(--muted); }
+.reqs { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; font-size: 14.5px; color: var(--ink-2); }
+.reqs li { display: flex; gap: 10px; align-items: flex-start; }
+.reqs li svg { width: 18px; height: 18px; color: var(--green); flex: none; margin-top: 3px; }
+.install { margin: 0; padding: 28px; list-style: none; display: grid; gap: 20px; counter-reset: ins; }
+.install li { display: grid; grid-template-columns: 38px 1fr; gap: 14px; }
+.install li::before {
+  counter-increment: ins; content: counter(ins);
+  width: 38px; height: 38px; border-radius: 12px; display: grid; place-items: center;
+  background: var(--grad); color: #fff; font: 700 15px/1 var(--f-body);
+  box-shadow: 0 8px 16px -8px rgba(11, 155, 97, .8);
+}
+.install b { display: block; font-weight: 700; }
+.install p { color: var(--ink-2); font-size: 15px; }
+kbd { font: 600 12.5px/1 var(--f-mono); background: #fff; border: 1px solid rgba(14,42,34,.15); border-bottom-width: 2px; border-radius: 6px; padding: 3px 7px; }
+
+/* SSS */
+.faq { display: grid; gap: 12px; max-width: 860px; }
+.faq details { padding: 0 24px; border-radius: 18px; }
+.faq summary { cursor: pointer; list-style: none; padding: 20px 40px 20px 0; position: relative; font-weight: 700; font-size: 16.5px; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+  content: "+"; position: absolute; right: 0; top: 50%; transform: translateY(-50%);
+  width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center;
+  background: rgba(255,255,255,.85); color: var(--green-deep); font: 600 18px/1 var(--f-body);
+}
+.faq details[open] summary::after { content: "−"; }
+.faq details p { padding-bottom: 20px; color: var(--ink-2); max-width: 70ch; }
+
+footer { padding-block: 20px 40px; }
+.foot { display: flex; flex-wrap: wrap; gap: 12px 24px; justify-content: space-between; align-items: center; padding: 18px 24px; font-size: 14px; color: var(--muted); }
+.foot .brand { font-size: 15px; }
+.foot .brand img { width: 24px; height: 24px; }
+
+@media (max-width: 980px) {
+  .features { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 900px) {
+  .hero-grid, .gs1, .download { grid-template-columns: minmax(0, 1fr); }
+  .steps, .safety { grid-template-columns: minmax(0, 1fr); }
+  .nav { display: none; }
+  .top-inner .btn { margin-left: auto; }
+}
+@media (max-width: 560px) {
+  .hero { padding-block: 40px 24px; }
+  section { padding-block: 56px; }
+  .features { grid-template-columns: minmax(0, 1fr); }
+  .feature.wide { grid-column: auto; }
+  .stage { padding: 16px 16px 20px; min-height: 0; }
+  .box { width: 64%; }
+  .popup { position: relative; right: auto; bottom: auto; width: 100%; margin-top: 22px; }
+  .chip-float.cf1 { display: none; }
+  .cf2 { left: auto; right: 12px; top: 14px; }
+  .gs1 { padding: 22px; }
+  .gs1-row { grid-template-columns: 46px 1fr; }
+  .gs1-row .val { grid-column: 2; }
+  .deco { display: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div class="top-inner glass">
+    <a class="brand" href="#">
+      <img src="data:image/png;base64,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" alt="" width="30" height="30">
+      Eczane Barkod Popup
+    </a>
+    <nav class="nav" aria-label="Sayfa bölümleri">
+      <a href="#nasil">Nasıl çalışır</a>
+      <a href="#ozellikler">Özellikler</a>
+      <a href="#karekod">Karekod</a>
+      <a href="#sss">SSS</a>
+    </nav>
+    <a class="btn btn-primary btn-sm" href="#indir">İndir</a>
+  </div>
+</div>
+
+<main>
+  <section class="hero" aria-labelledby="hero-title">
+    <span class="deco float capsule" style="left:-30px; top:60px; --r:-28deg"></span>
+    <span class="deco float slow tablet" style="left:42%; top:14px"></span>
+    <span class="deco float slow capsule c3" style="right:-40px; top:560px; --r:24deg; width:96px; height:38px"></span>
+
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <span class="pill-label"><i><svg viewBox="0 0 12 12" fill="currentColor"><path d="M4.5 0h3v4.5H12v3H7.5V12h-3V7.5H0v-3h4.5z"/></svg></i>Eczane kasası için Windows uygulaması</span>
+          <h1 id="hero-title">İlacı okuttuğunuz anda <span class="grad">yanına ne önerileceğini</span> söyler.</h1>
+          <p class="lede">Eczane programınız çalışmaya devam eder. Barkod okunduğunda ekranın köşesinde küçük bir kart belirir: ilacın etken maddesine göre önerilebilecek ürünler, her birinin gerekçesi ve dikkat edilmesi gereken etkileşim notları.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#indir">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg>
+              Windows için indir
+            </a>
+            <a class="btn btn-glass" href="#nasil">Nasıl çalışır</a>
+          </div>
+          <div class="hero-meta">
+            <span class="tag">30 gün ücretsiz deneme</span>
+            <span class="tag">v2.0.0</span>
+            <span class="tag">Windows 10 / 11 · 64-bit</span>
+            <span class="tag">Kurulum gerekmez</span>
+            <span class="tag">İnternet gerekmez</span>
+          </div>
+        </div>
+
+        <div class="stage glass" aria-label="Örnek: ATOR 20 MG okutulduğunda açılan kart">
+          <div class="box">
+            <div class="box-name">ATOR 20 MG</div>
+            <div class="box-sub">30 film kaplı tablet</div>
+            <div class="barcode">
+              <svg id="ean" viewBox="0 0 113 64" role="img" aria-label="EAN-13 barkod 8699536090160"></svg>
+              <div class="scanline" aria-hidden="true"></div>
+            </div>
+          </div>
+
+          <div class="chip-float glass cf2" aria-hidden="true">
+            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>
+            <span><b>Okundu</b><small>Kart anında açıldı</small></span>
+          </div>
+          <div class="chip-float glass cf1" aria-hidden="true">
+            <span class="ico red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg></span>
+            <span><b>2 not</b><small>Etkileşim</small></span>
+          </div>
+
+          <div class="popup" aria-hidden="true">
+            <div class="popup-accent"></div>
+            <div class="popup-body">
+              <div class="popup-head">
+                <span class="cap">OKUTULAN ÜRÜN  •  14:32</span>
+                <span class="x"><svg viewBox="0 0 10 10" stroke="currentColor" stroke-width="1.3"><path d="M1 1l8 8M9 1 1 9"/></svg></span>
+              </div>
+              <div class="pname">ATOR 20 MG FILM KAPLI TABLET, 30 TABLET</div>
+              <div class="psub">atorvastatin kalsiyum • C10AA05</div>
+              <div class="chips">
+                <span class="chip info">209,34 ₺</span>
+                <span class="chip ok">Stok: 4</span>
+                <span class="chip">SKT 03/2027</span>
+              </div>
+              <div class="pnote">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 1 21h22L12 2zm1 15h-2v-2h2v2zm0-4h-2V9h2v4z"/></svg>
+                <div>
+                  <p>Kırmızı maya pirinci (monakolin K) statinle birlikte kullanılmamalı.</p>
+                  <p>Açıklanamayan kas ağrısı olursa hekime başvurulmalı.</p>
+                </div>
+              </div>
+              <div class="cap" style="margin-top:4px">ÖNERİLER (5)</div>
+              <div class="sugs">
+                <div class="sug"><span class="kind k-takviye">Takviye</span><div><b>Koenzim Q10</b><span>Kas ağrısı riskini azaltmaya destek</span></div><i class="dot"></i></div>
+                <div class="sug"><span class="kind k-takviye">Takviye</span><div><b>Omega-3</b><span>Kardiyovasküler sağlık desteği</span></div><i class="dot"></i></div>
+                <div class="sug"><span class="kind k-vitamin">Vitamin</span><div><b>D Vitamini</b><span>Kas-iskelet sağlığı</span></div><span></span></div>
+              </div>
+              <div class="pfoot"><small>+2 öneri daha</small><span class="pbtn">Detaylar</span></div>
+            </div>
+            <div class="countdown"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat glass"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span><div><b>22.000+</b><span>ruhsatlı ilaç</span></div></div>
+        <div class="stat glass"><span class="ico blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h10"/></svg></span><div><b>117</b><span>öneri kuralı</span></div></div>
+        <div class="stat glass"><span class="ico violet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="8" rx="4"/><path d="M12 8v8"/></svg></span><div><b>322</b><span>ürün önerisi</span></div></div>
+        <div class="stat glass"><span class="ico amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg></span><div><b>53</b><span>danışmanlık notu</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="nasil" aria-labelledby="nasil-title">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="pill-label"><i><svg viewBox="0 0 12 12" fill="currentColor"><path d="M4.5 0h3v4.5H12v3H7.5V12h-3V7.5H0v-3h4.5z"/></svg></i>Nasıl çalışır</span>
+        <h2 id="nasil-title">Okutmadan öneriye üç adım</h2>
+      </div>
+      <ol class="steps">
+        <li class="step glass">
+          <span class="step-num" aria-hidden="true">1</span>
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6v12M7 6v12M10 6v12M14 6v12M17 6v12M20 6v12"/></svg></span>
+          <h3>Okutun</h3>
+          <p>Barkodu ya da ilaç karekodunu her zamanki gibi okutun. Eczane programınız okutmayı normal şekilde alır; uygulama yalnızca yanında dinler.</p>
+          <p class="figure">EAN-13 · GS1 DataMatrix</p>
+        </li>
+        <li class="step glass">
+          <span class="step-num" aria-hidden="true">2</span>
+          <span class="ico blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="m20 20-4.5-4.5"/></svg></span>
+          <h3>Eşleştirir</h3>
+          <p>İlaç, TİTCK ruhsatlı ürünler listesinden bulunur. Etken maddesi, ATC kodu, ruhsat durumu ve fiyat listesindeki fiyatı okunur.</p>
+          <p class="figure"><strong>22.000+</strong> ruhsatlı ürün · <strong>6.853</strong> fiyat</p>
+        </li>
+        <li class="step glass">
+          <span class="step-num" aria-hidden="true">3</span>
+          <span class="ico violet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M4.2 7.5l2.6 1.5M17.2 15l2.6 1.5M4.2 16.5 6.8 15M17.2 9l2.6-1.5"/><circle cx="12" cy="12" r="3.2"/></svg></span>
+          <h3>Önerir</h3>
+          <p>Eşleşen kurallara göre öneriler gerekçeleriyle sıralanır. Detay penceresinde eczanenizdeki markalar ve stok durumu görünür.</p>
+          <p class="figure"><strong>117</strong> kural · <strong>322</strong> öneri · <strong>53</strong> not</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="ozellikler" aria-labelledby="ozellik-title">
+    <span class="deco float capsule c2" style="right:4%; top:40px; --r:18deg; width:100px; height:40px"></span>
+    <span class="deco float slow tablet" style="left:2%; bottom:30px; width:52px; height:52px"></span>
+    <div class="wrap">
+      <div class="section-head">
+        <span class="pill-label"><i><svg viewBox="0 0 12 12" fill="currentColor"><path d="M4.5 0h3v4.5H12v3H7.5V12h-3V7.5H0v-3h4.5z"/></svg></i>Özellikler</span>
+        <h2 id="ozellik-title">Kasadaki işinizi bölmeden çalışır</h2>
+      </div>
+      <div class="features">
+        <div class="feature glass wide">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><rect x="12" y="11" width="7" height="5" rx="1"/></svg></span>
+          <h3>Odağınızı çalmaz</h3>
+          <p>Kart ekranın köşesinde belirir ama eczane programındaki barkod alanından odağı almaz. Arka arkaya okutmalarda kartlar üst üste binmez, mevcut kart güncellenir. Fare kartın üstündeyken kapanma sayacı durur.</p>
+        </div>
+        <div class="feature glass">
+          <span class="ico red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg></span>
+          <h3>Danışmanlık notları</h3>
+          <p>Levotiroksinde 4 saat ara, kinolonlarda mineral uyarısı gibi notlar önerilerin üstünde görünür.</p>
+        </div>
+        <div class="feature glass">
+          <span class="ico amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg></span>
+          <h3>Son kullanma tarihi</h3>
+          <p>Karekoddaki SKT okunur. 90 gün içinde dolacaksa kart turuncu, geçmişse kırmızı olur.</p>
+        </div>
+        <div class="feature glass">
+          <span class="ico violet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="8" rx="4"/><path d="M12 8v8"/></svg></span>
+          <h3>Eczanedeki markalar</h3>
+          <p>“Koenzim Q10” önerisinin altında raftaki Q10 ürünleri listelenir; stok dosyasıyla fiyat ve adet de görünür.</p>
+        </div>
+        <div class="feature glass">
+          <span class="ico blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 1 14-5.3M20 12a8 8 0 0 1-14 5.3"/><path d="M18 3v4h-4M6 21v-4h4"/></svg></span>
+          <h3>Liste güncelleme</h3>
+          <p>TİTCK yeni listeyi yayımladığında Excel dosyasını menüden içe aktarın; türü kendiliğinden anlaşılır.</p>
+        </div>
+        <div class="feature glass">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h10l6 6v10H4z"/><path d="M14 4v6h6"/></svg></span>
+          <h3>Kurallar sizin elinizde</h3>
+          <p>Öneri kuralları ve marka listesi düzenlenebilir dosyalardır; tek tıkla yeniden yüklenir.</p>
+        </div>
+        <div class="feature glass">
+          <span class="ico blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span>
+          <h3>Tamamen yerel</h3>
+          <p>İnternet gerekmez, hiçbir veri dışarı gönderilmez. Hasta bilgisi tutulmaz; günlükte yalnızca okutulan ürün ve saat yer alır.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="karekod" aria-labelledby="karekod-title">
+    <div class="wrap">
+      <div class="gs1 glass">
+        <div class="section-head" style="margin-bottom:0">
+          <span class="pill-label"><i><svg viewBox="0 0 12 12" fill="currentColor"><path d="M0 0h5v5H0zM7 0h5v5H7zM0 7h5v5H0zM8 8h2v2H8z"/></svg></i>İlaç karekodu</span>
+          <h2 id="karekod-title">Karekoddan ne okunur?</h2>
+          <p class="lede" style="font-size:16.5px">İlaç kutusundaki karekod dört alan taşır. Okuyucu alanlar arasındaki ayırıcıyı göndermese bile uygulama alanları doğru ayırır ve ürünü GTIN ile bulur.</p>
+          <div class="gs1-raw" aria-label="Örnek karekod verisi">
+            <span class="ai">01</span><span class="seg v01">08699536090160</span><span class="ai">21</span><span class="seg v21">A7K3Q9P2M1</span><span class="ai">17</span><span class="seg v17">270331</span><span class="ai">10</span><span class="seg v10">B24X17</span>
+          </div>
+        </div>
+        <div>
+          <div class="gs1-rows">
+            <div class="gs1-row"><span class="code v01">(01)</span><span>GTIN · ürün numarası</span><span class="val">08699536090160</span></div>
+            <div class="gs1-row"><span class="code v21">(21)</span><span>Seri numarası · kutuya özel</span><span class="val">A7K3Q9P2M1</span></div>
+            <div class="gs1-row"><span class="code v17">(17)</span><span>Son kullanma tarihi</span><span class="val">31.03.2027</span></div>
+            <div class="gs1-row"><span class="code v10">(10)</span><span>Parti numarası</span><span class="val">B24X17</span></div>
+          </div>
+          <p class="gs1-note">GTIN'deki baştaki sıfır atılınca kutunun üzerindeki 13 haneli barkod çıkar: <span class="mono">8699536090160</span>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="guvenlik-title">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="pill-label"><i><svg viewBox="0 0 12 12" fill="currentColor"><path d="M6 0 11 2v4c0 3-2.2 5.2-5 6-2.8-.8-5-3-5-6V2z"/></svg></i>Klinik güvenlik</span>
+        <h2 id="guvenlik-title">Yanlış öneriyi de bilir</h2>
+        <p class="lede">Bazı ilaçlarda belirli takviyeler hiç önerilmez. Kural o ürün grubunu tüm önerilerden çıkarır ve nedenini not olarak gösterir.</p>
+      </div>
+      <div class="safety">
+        <article class="case glass">
+          <p class="drug">varfarin · B01AA03</p>
+          <h3>Omega-3 ve bitkisel ürünler önerilmez</h3>
+          <p class="rule"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 1 21h22L12 2zm1 15h-2v-2h2v2zm0-4h-2V9h2v4z"/></svg>Omega-3, ginkgo, zerdeçal, sarımsak gibi takviyeler kanama riskini artırabilir; hekime danışılmadan başlanmamalı.</p>
+        </article>
+        <article class="case glass">
+          <p class="drug">levotiroksin sodyum · H03AA01</p>
+          <h3>Mineral takviyelerine zaman notu</h3>
+          <p class="rule"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 1 21h22L12 2zm1 15h-2v-2h2v2zm0-4h-2V9h2v4z"/></svg>Kalsiyum, demir, magnezyum içeren takviyeler ve antasitlerle en az 4 saat ara verilmeli.</p>
+        </article>
+        <article class="case glass">
+          <p class="drug">spironolakton · C03DA01</p>
+          <h3>Potasyum takviyesi önerilmez</h3>
+          <p class="rule"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 1 21h22L12 2zm1 15h-2v-2h2v2zm0-4h-2V9h2v4z"/></svg>Potasyum takviyelerinden ve potasyumlu tuz ikamelerinden kaçınılmalı (hiperkalemi riski).</p>
+        </article>
+      </div>
+      <p class="disclaimer">Öneriler ve notlar eczacıya yardımcı olmak içindir; hekim ve eczacı değerlendirmesinin yerini tutmaz. Kural içerikleri eczanenizin ihtiyacına göre düzenlenebilir.</p>
+    </div>
+  </section>
+
+  <section id="indir" aria-labelledby="indir-title">
+    <span class="deco float capsule" style="left:-24px; top:70px; --r:32deg; width:104px; height:40px"></span>
+    <div class="wrap">
+      <div class="section-head">
+        <span class="pill-label"><i><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 1.5v6M3.5 5 6 7.5 8.5 5M2 10.5h8"/></svg></i>İndir</span>
+        <h2 id="indir-title">Dört adımda kasada</h2>
+      </div>
+      <div class="download">
+        <div class="dl-card glass">
+          <div class="file">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAAABccqhmAAALTUlEQVR42u2d65JcVRmG9yX0LwcRzc4d9BUkOwkEiTE2QiQnq+YKrF16A13lCciY4RjCySGZIDkQNggqHrCjVSYQsdoKgoA/+odVEqyy5hKW70o1KTUWJDP7W/3tXs9T9fxdM7O+9T3TQICiAAAAAAAAAAAAAAAAAAAAAAAAAABwz+bff7MvKzmcuixHiNO38Mm7iG+kz8Z0e9njEGvZyIkMiOtwMn1D8S1VbJbbhT9USg3pkIZ1KCAa2kzfWsnmzXLpf3eoJ2s5lgFxBo6nb7DHRqZb/Equ8PjQmfFN8pcJhou/KCc8NHRufKOLbCyLj4SAEKx78c/ro/55XeJ5XSZid41vmL80uInFL2XDw8E5M75p/snBZyx/Ldd4LDinxrdds+nXLf5B/dY/OJIBMQPjW+fTwNXlHx0cyDUZEDMyvvlB7ss/5CFg5g5zXPyebBg+4lXjLvRyWv4xQ0f8L8dzH4HNvz1YyrEMiHidcTfKeV3+vlxjyIifatyR/jz+5mf5EW88AvPxSWDzGwd6ciwDIt6wcWd6LD8iEegm5RsHGhkQcd02XV3+IcNDbMVu/WGh8jcHBjIgYmsOurL8pVxjYIitGneq7EIARgwL0cSR8+XfX8uAiGb6/O8JlL/eX8o1GRDRzLhjpccANAwHMYmNt+WvGApiUis/AfjV/okMiJjMiZflX2QYiDNxkd/+iHwK4Lc/Ip8CUgfgl/smMiDizJzMavkrLh/RhdUsArDCxSO6cCX18ve4dERXpvsPh5Sv76tlQEQ31ikDMObCEV05TrX8JZeN6FL7f0lo0y/21TIgojvrBAG4r5EB2/U7l4+Gi/96Nwvjz8rMTWxSBICLNnD5b2dDLsSflZnbaL38FZdMAAiAa+3+UNCmn99Xy4Dtm10AmLmVtWUAGi6YABAA1zaWAZhwwUYB+DCjAHxIAAydWAaACyYABMC5Nsv/s2/0ZUAbswsAM7e0bxGAioslAASgE1YWARhysQSAAHTC9v9nopteUwBe0+FoYnYBYOaWmgRgmYu1DMCZjAJwhpnbumwRgBEXaxiADzIKwAcEwNgRASAABIAAtBiAVxWAV3U4mphdAJi5pRYB2KsA7A1oY34BYOaGEgACQAAIAAEgAASAALTBl366dyQD2phbAJi5qQSAABAAAkAAuhOA9zMKwPsEgAAgAcAOBeAVBeAVHY4mZhcAZm6pRQDuVQDuDWhjfgFg5oYSAAJAAAhAmwF4WQF4WYejidkFgJlbSgAIAAEgAASgOwH46+l8AqCflZkTAPwPj2QUgCMEoIMBaBSARoejidkFgJlbSgAIAAEgAK0G4B4F4J6ANuYXAGZuKAEgAASAALQZgJcUgJd0OJqYXQCYuaUEoHMBeC+jALxHAAgAEgDsUADOKQDndDiamF0AmLmlBIAAEAAC0CJfPPf1kQxoY24BYOamEgACQAAIQJsBeFEBeFGHo4nZBYCZW0oACAABIAAEoDsBePdUPgHQz8rMCQASAOxMAM4qAGd1OJqYXQCYuaUEgAAQAALQagDuVgDuDmhjfgFg5oYaBOCMAnBGhzv225ceufq4uujFf/4lmwDEn7Wrc4pvzPsexF3NMgAXMloimA3xjREAAgAEgAD4C8A7vFAwDsA7mQbgtAJwWoc7lgBAkgA434O4qwQAgABkFoCPCQAYB+DjbAMwUAAGwbMEANIEYOBdgwCcUgBO6XDHEgBIEgDnexB3lQAAEID2uE2HyuBZAgApAuB9D24jAAAEoN0AvKAAvKDDHUsAIEkAnO9B3FUCAEAACAAAAWgjAD/52kgGzxIASBIA53sQd5UAABAAAgBAAAgAAAHYUACeVwCe1+GOJQCQJADO9yDuKgEAIACZBeAKAQDjAFzJNgB7FIA9wbMEANIEYI93DQJwUgE4qcMdSwAgSQCc70HcVQIAQAAIAAABaCMAqwrAqg53LAGAJAFwvgdxVwkAAAEgAAAEgAAAEICN8IUTXx3J4FkCACkC4H0P4q4SAAACQAAACAABACAAGwrAcQXguA537IUrl3mhYByAy8H7HsRdJQAABCCzAHxEAMA4AB/lGoDnFIDndLhjCQAkCYDzPYi7ahCA3QrA7uBZAgBpArDbuwQAgAAQAAAC0EoAVhSAFR3uWAIASQLgfA/irhIAAAJAAAAIAAEAIAAbCsCPvzKSwbMEAJIEwPkexF0lAAAEgAAAEIA2AvCsAvCsDncsAYAkAXC+B3FXCQAAAWiPW3WoDJ698A8CAMYB0Bvzvge3EgAAAtBuAJ5RAJ7R4Y4lAJAkAM73IO6qQQB2KQC7gmcJAKQJwC7vEgAAAkAAAAhAKwF4WgF4Woc7lgBAkgA434O4qwQAgAAQAAACkEkA6vNHwtKfTnbSnOIVf9auzim+sTwD8JQC8JQORxPj48qF+LMyc1MtAnCXAnBXQBuX3s4oAG+fZOa2EgACQAAIQJsBeFIBeFKHo4nZBYCZW0oACAABIAAEgAAQAAJAAAgAASAAGwvAMQXgmA5HE7MLADO3lAAQAAJAAFrk88e+PJIBbVz6Y0YB0M/KzE0lAASAABCANgPwhALwhA5HE7MLADO3lAAQAAJAAAhAhwKwmlEAVpl55wJwVAE4qsPRxOwCwMwtJQAEgAAQgFYDcKcCcGdAG5cuZRSAS6vM3FYCQAAIAAFoMwCPKwCP63A0MbsAMHNLCQABIAAEgAAQAAJAAAgAASAABGBjAXhMAXhMh6OJ2QWAmVtKAAgAASAArQZgpwKwM6CNS29lFIC3Vpm5rQYBeFQBeFSHo4nZBYCZW0oACAABIAAEgAAQAAJAALoQgBMZBeAEM+9aAG55ZOdIBrQxtwAwc1MJAAEgAASAAHQnAG9mFIA3CUAHA3CHAnBHQBvzCwAzN9QgAA8rAA/rcDQxuwAwc0sJAAEgAASg3QAsc7EEgAB0wmWLAAy5WAJAADrhsP0APKQAPKTD0cTsAsDMLTUJQMXFGgbgYkYBuEgAjK0sAtDnYu08nFEADhMAa/uFBbcs3x7QxuwCwMzNLKzQ4RMumAAQANdOLAPQcMEEgAC4trEMQM0FWwXgeEYBOM7M7aztAnDk9koGbN/sAsDMrawKS7hgAkAA/FpYoy/ScNHt+63XHwx/+PufszD+rMzcxCZBAHbUMiCiO2vzACz8aEcpAyK6syxSoC805rIRXTkuUqEvVnPhiK6s0wVgaUdPBkR0Y69Iib7gCpeO6MKVIjX6ohUXj+jCqpgF+sITLh9xpk6KWbFwePuiDIg4MxeLWaJvYMIQEGfipJg1fApAzPS3P58CEDP+7X8tAA9ur2RAxGRWhSf0DTUMBTGJTeENfVOlXGM4iKbGHSsLjyw8sL2WARHNrAvPLDywbSQDIrbuqPCOvslSrjEsxFaNO1UWXUDf6ICBIbbqoOgSC/dvG8qAiBt2WHQRfeMNw0PckE3RVT53/7aeHMuAiDdt3J1e0WWIAGKmy38tAj+sSrkmAyJ+pnFXymKe0A/UJwKIN7T8/WIemX4SGDNkxP/reO5+818XgR9UPTmWARGvGXeiV+TANAINQ0e8apPN8v9PCIYMHzN3WOSMLmAg13gImJnxzQ8KUAS+X5VyJANiBsa3XrL514Vgay3XZECcQ+Pbrtn0T4+APg1sbXgsOGfGN81v/ZsIQSUnPBzsuPENV2z0ekPwva2LciIDYoeMb3aRDSYEyOJDiyGo5AoPDZ0Z3yQf9ROGoCdrOebx4YwcT99gj42cZQy+u7WUtWxkQDS0mb41/o6+3yBsqaSGtEXD2jKRAXEdTqZvKL4lPt53PAr9aRiGU5flCHH6Fj55F/GN9NkYAAAAAAAAAAAAAAAAAAAAAAAAAPDPvwEWVeGvWV9REwAAAABJRU5ErkJggg==" alt="" width="56" height="56">
+            <div>
+              <b>EczaneBarkodPopup-win-x64.exe</b>
+              <span>v2.0.0 · yaklaşık 80 MB · tek dosya</span>
+            </div>
+          </div>
+          <a class="btn btn-primary" href="https://github.com/umutcan-integrity/barcodepopup/releases/latest/download/EczaneBarkodPopup-win-x64.exe">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg>
+            Windows için indir
+          </a>
+          <ul class="reqs">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Windows 10 (1607 ve sonrası) veya Windows 11, 64-bit</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>.NET kurulumu gerekmez, her şey dosyanın içinde</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Yönetici yetkisi gerekmez</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg>Klavye modunda çalışan USB barkod okuyucularla çalışır</li>
+          </ul>
+          <p class="figure"><a href="https://github.com/umutcan-integrity/barcodepopup/releases">Tüm sürümler ve değişiklik notları</a></p>
+        </div>
+
+        <ol class="install glass">
+          <li><div><b>İndirin</b><p>Dosyayı masaüstüne ya da kalıcı bir klasöre kaydedin.</p></div></li>
+          <li><div><b>Çalıştırın</b><p>Windows “bilgisayarınızı korudu” uyarısı gösterirse <kbd>Ek bilgi</kbd> ve ardından <kbd>Yine de çalıştır</kbd> seçin. Uyarı, dosyanın henüz dijital imzası olmamasından kaynaklanır.</p></div></li>
+          <li><div><b>İlk açılışı bekleyin</b><p>İlaç listesi ilk açılışta birkaç saniyede hazırlanır. Sonraki açılışlar anında olur.</p></div></li>
+          <li><div><b>Okutun</b><p>Saatin yanında yeşil haç simgesi belirir. Menüden <kbd>Windows açılışında başlat</kbd> seçeneğini açabilirsiniz.</p></div></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section id="sss" aria-labelledby="sss-title">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="pill-label"><i><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4.2 4.3a1.9 1.9 0 1 1 2.6 1.8c-.5.2-.8.6-.8 1.1v.3M6 9.6h.01"/></svg></i>Sık sorulanlar</span>
+        <h2 id="sss-title">Sorular</h2>
+      </div>
+      <div class="faq">
+        <details class="glass">
+          <summary>Eczane programımla birlikte çalışır mı?</summary>
+          <p>Evet. Uygulama eczane programına bağlanmaz ve okutmayı engellemez. Barkod her zamanki gibi programınıza gider; uygulama aynı okutmayı yanında görüp kartı gösterir.</p>
+        </details>
+        <details class="glass">
+          <summary>Antivirüs neden uyarı veriyor?</summary>
+          <p>Klavye gibi çalışan barkod okuyucuyu duymak için uygulama klavye girişini dinler ve dosya henüz dijital olarak imzalı değildir. Tuşlar kaydedilmez, saklanmaz ya da gönderilmez; yalnızca 50 milisaniyeden hızlı gelen barkod dizileri değerlendirilir. Dosya dijital olarak imzalandığında ve okuyucu seri port modunda doğrudan okunduğunda bu uyarılar büyük ölçüde ortadan kalkar.</p>
+        </details>
+        <details class="glass">
+          <summary>Okuyucum barkodu okuyor ama kart çıkmıyor.</summary>
+          <p>Ayarlar'daki “Tuşlar arası en fazla süre” değerini artırın (örneğin 80 ms). Tepsi menüsündeki “Barkodla ürün ara” ile ürünün katalogda olup olmadığını da deneyebilirsiniz.</p>
+        </details>
+        <details class="glass">
+          <summary>Öneri kurallarını değiştirebilir miyim?</summary>
+          <p>Evet. Tepsi menüsünde Veri → Öneri kurallarını düzenle dosyayı Not Defteri'nde açar. Kaydettikten sonra “Kuralları ve ürünleri yeniden yükle” yeterlidir. Hatalı bir dosyada uygulama önceki sürümle çalışmaya devam eder.</p>
+        </details>
+        <details class="glass">
+          <summary>Stok ve raf fiyatını nasıl gösteririm?</summary>
+          <p>Eczane programınızdan Barkod, Ürün Adı, Stok ve Fiyat kolonları olan bir CSV dosyası dışa aktarın ve Ayarlar'dan seçin. Dosya değiştikçe uygulama yeniden okur.</p>
+        </details>
+        <details class="glass">
+          <summary>Deneme süresi ve lisans nasıl işliyor?</summary>
+          <p>İlk kurulumda 30 gün boyunca tüm özellikler ücretsiz açıktır. Son hafta kartın altında küçük bir hatırlatma görünür. Süre bitince öneriler kapanır ama eczane programınız etkilenmez. Yıllık abonelik ya da süresiz lisans seçeneği vardır; bir lisans eczanenin tüm bilgisayarlarında geçerlidir ve internet olmadan etkinleştirilir.</p>
+        </details>
+        <details class="glass">
+          <summary>Verilerim nerede tutulur?</summary>
+          <p>Ayarlar, ilaç veritabanı ve günlük dosyaları bilgisayarınızda <span class="mono">%LOCALAPPDATA%\PharmacyBarcodePopup</span> klasöründedir. Hiçbir şey internete gönderilmez.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot glass">
+      <span class="brand"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAAABccqhmAAALTUlEQVR42u2d65JcVRmG9yX0LwcRzc4d9BUkOwkEiTE2QiQnq+YKrF16A13lCciY4RjCySGZIDkQNggqHrCjVSYQsdoKgoA/+odVEqyy5hKW70o1KTUWJDP7W/3tXs9T9fxdM7O+9T3TQICiAAAAAAAAAAAAAAAAAAAAAAAAAABwz+bff7MvKzmcuixHiNO38Mm7iG+kz8Z0e9njEGvZyIkMiOtwMn1D8S1VbJbbhT9USg3pkIZ1KCAa2kzfWsnmzXLpf3eoJ2s5lgFxBo6nb7DHRqZb/Equ8PjQmfFN8pcJhou/KCc8NHRufKOLbCyLj4SAEKx78c/ro/55XeJ5XSZid41vmL80uInFL2XDw8E5M75p/snBZyx/Ldd4LDinxrdds+nXLf5B/dY/OJIBMQPjW+fTwNXlHx0cyDUZEDMyvvlB7ss/5CFg5g5zXPyebBg+4lXjLvRyWv4xQ0f8L8dzH4HNvz1YyrEMiHidcTfKeV3+vlxjyIifatyR/jz+5mf5EW88AvPxSWDzGwd6ciwDIt6wcWd6LD8iEegm5RsHGhkQcd02XV3+IcNDbMVu/WGh8jcHBjIgYmsOurL8pVxjYIitGneq7EIARgwL0cSR8+XfX8uAiGb6/O8JlL/eX8o1GRDRzLhjpccANAwHMYmNt+WvGApiUis/AfjV/okMiJjMiZflX2QYiDNxkd/+iHwK4Lc/Ip8CUgfgl/smMiDizJzMavkrLh/RhdUsArDCxSO6cCX18ve4dERXpvsPh5Sv76tlQEQ31ikDMObCEV05TrX8JZeN6FL7f0lo0y/21TIgojvrBAG4r5EB2/U7l4+Gi/96Nwvjz8rMTWxSBICLNnD5b2dDLsSflZnbaL38FZdMAAiAa+3+UNCmn99Xy4Dtm10AmLmVtWUAGi6YABAA1zaWAZhwwUYB+DCjAHxIAAydWAaACyYABMC5Nsv/s2/0ZUAbswsAM7e0bxGAioslAASgE1YWARhysQSAAHTC9v9nopteUwBe0+FoYnYBYOaWmgRgmYu1DMCZjAJwhpnbumwRgBEXaxiADzIKwAcEwNgRASAABIAAtBiAVxWAV3U4mphdAJi5pRYB2KsA7A1oY34BYOaGEgACQAAIAAEgAASAALTBl366dyQD2phbAJi5qQSAABAAAkAAuhOA9zMKwPsEgAAgAcAOBeAVBeAVHY4mZhcAZm6pRQDuVQDuDWhjfgFg5oYSAAJAAAhAmwF4WQF4WYejidkFgJlbSgAIAAEgAASgOwH46+l8AqCflZkTAPwPj2QUgCMEoIMBaBSARoejidkFgJlbSgAIAAEgAK0G4B4F4J6ANuYXAGZuKAEgAASAALQZgJcUgJd0OJqYXQCYuaUEoHMBeC+jALxHAAgAEgDsUADOKQDndDiamF0AmLmlBIAAEAAC0CJfPPf1kQxoY24BYOamEgACQAAIQJsBeFEBeFGHo4nZBYCZW0oACAABIAAEoDsBePdUPgHQz8rMCQASAOxMAM4qAGd1OJqYXQCYuaUEgAAQAALQagDuVgDuDmhjfgFg5oYaBOCMAnBGhzv225ceufq4uujFf/4lmwDEn7Wrc4pvzPsexF3NMgAXMloimA3xjREAAgAEgAD4C8A7vFAwDsA7mQbgtAJwWoc7lgBAkgA434O4qwQAgABkFoCPCQAYB+DjbAMwUAAGwbMEANIEYOBdgwCcUgBO6XDHEgBIEgDnexB3lQAAEID2uE2HyuBZAgApAuB9D24jAAAEoN0AvKAAvKDDHUsAIEkAnO9B3FUCAEAACAAAAWgjAD/52kgGzxIASBIA53sQd5UAABAAAgBAAAgAAAHYUACeVwCe1+GOJQCQJADO9yDuKgEAIACZBeAKAQDjAFzJNgB7FIA9wbMEANIEYI93DQJwUgE4qcMdSwAgSQCc70HcVQIAQAAIAAABaCMAqwrAqg53LAGAJAFwvgdxVwkAAAEgAAAEgAAAEICN8IUTXx3J4FkCACkC4H0P4q4SAAACQAAACAABACAAGwrAcQXguA537IUrl3mhYByAy8H7HsRdJQAABCCzAHxEAMA4AB/lGoDnFIDndLhjCQAkCYDzPYi7ahCA3QrA7uBZAgBpArDbuwQAgAAQAAAC0EoAVhSAFR3uWAIASQLgfA/irhIAAAJAAAAIAAEAIAAbCsCPvzKSwbMEAJIEwPkexF0lAAAEgAAAEIA2AvCsAvCsDncsAYAkAXC+B3FXCQAAAWiPW3WoDJ698A8CAMYB0Bvzvge3EgAAAtBuAJ5RAJ7R4Y4lAJAkAM73IO6qQQB2KQC7gmcJAKQJwC7vEgAAAkAAAAhAKwF4WgF4Woc7lgBAkgA434O4qwQAgAAQAAACkEkA6vNHwtKfTnbSnOIVf9auzim+sTwD8JQC8JQORxPj48qF+LMyc1MtAnCXAnBXQBuX3s4oAG+fZOa2EgACQAAIQJsBeFIBeFKHo4nZBYCZW0oACAABIAAEgAAQAAJAAAgAASAAGwvAMQXgmA5HE7MLADO3lAAQAAJAAFrk88e+PJIBbVz6Y0YB0M/KzE0lAASAABCANgPwhALwhA5HE7MLADO3lAAQAAJAAAhAhwKwmlEAVpl55wJwVAE4qsPRxOwCwMwtJQAEgAAQgFYDcKcCcGdAG5cuZRSAS6vM3FYCQAAIAAFoMwCPKwCP63A0MbsAMHNLCQABIAAEgAAQAAJAAAgAASAABGBjAXhMAXhMh6OJ2QWAmVtKAAgAASAArQZgpwKwM6CNS29lFIC3Vpm5rQYBeFQBeFSHo4nZBYCZW0oACAABIAAEgAAQAAJAALoQgBMZBeAEM+9aAG55ZOdIBrQxtwAwc1MJAAEgAASAAHQnAG9mFIA3CUAHA3CHAnBHQBvzCwAzN9QgAA8rAA/rcDQxuwAwc0sJAAEgAASg3QAsc7EEgAB0wmWLAAy5WAJAADrhsP0APKQAPKTD0cTsAsDMLTUJQMXFGgbgYkYBuEgAjK0sAtDnYu08nFEADhMAa/uFBbcs3x7QxuwCwMzNLKzQ4RMumAAQANdOLAPQcMEEgAC4trEMQM0FWwXgeEYBOM7M7aztAnDk9koGbN/sAsDMrawKS7hgAkAA/FpYoy/ScNHt+63XHwx/+PufszD+rMzcxCZBAHbUMiCiO2vzACz8aEcpAyK6syxSoC805rIRXTkuUqEvVnPhiK6s0wVgaUdPBkR0Y69Iib7gCpeO6MKVIjX6ohUXj+jCqpgF+sITLh9xpk6KWbFwePuiDIg4MxeLWaJvYMIQEGfipJg1fApAzPS3P58CEDP+7X8tAA9ur2RAxGRWhSf0DTUMBTGJTeENfVOlXGM4iKbGHSsLjyw8sL2WARHNrAvPLDywbSQDIrbuqPCOvslSrjEsxFaNO1UWXUDf6ICBIbbqoOgSC/dvG8qAiBt2WHQRfeMNw0PckE3RVT53/7aeHMuAiDdt3J1e0WWIAGKmy38tAj+sSrkmAyJ+pnFXymKe0A/UJwKIN7T8/WIemX4SGDNkxP/reO5+818XgR9UPTmWARGvGXeiV+TANAINQ0e8apPN8v9PCIYMHzN3WOSMLmAg13gImJnxzQ8KUAS+X5VyJANiBsa3XrL514Vgay3XZECcQ+Pbrtn0T4+APg1sbXgsOGfGN81v/ZsIQSUnPBzsuPENV2z0ekPwva2LciIDYoeMb3aRDSYEyOJDiyGo5AoPDZ0Z3yQf9ROGoCdrOebx4YwcT99gj42cZQy+u7WUtWxkQDS0mb41/o6+3yBsqaSGtEXD2jKRAXEdTqZvKL4lPt53PAr9aRiGU5flCHH6Fj55F/GN9NkYAAAAAAAAAAAAAAAAAAAAAAAAAPDPvwEWVeGvWV9REwAAAABJRU5ErkJggg==" alt="" width="24" height="24">Eczane Barkod Popup · v2.0.0</span>
+      <span>İlaç verisi: TİTCK Ruhsatlı Beşeri Tıbbi Ürünler Listesi</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Örnek kutudaki barkodu gerçek EAN-13 kodlamasıyla çizer (okuyucuyla okunabilir).
+(function () {
+  var code = "8699536090160";
+  var L = ["0001101","0011001","0010011","0111101","0100011","0110001","0101111","0111011","0110111","0001011"];
+  var R = L.map(function (p) { return p.replace(/./g, function (b) { return b === "0" ? "1" : "0"; }); });
+  var G = R.map(function (p) { return p.split("").reverse().join(""); });
+  var parity = ["LLLLLL","LLGLGG","LLGGLG","LLGGGL","LGLLGG","LGGLLG","LGGGLL","LGLGLG","LGLGGL","LGGLGL"][+code[0]];
+
+  var bits = "101", guard = [0, 1, 2];
+  for (var i = 1; i <= 6; i++) bits += (parity[i - 1] === "L" ? L : G)[+code[i]];
+  guard.push(45, 46, 47, 48, 49);
+  bits += "01010";
+  for (var j = 7; j <= 12; j++) bits += R[+code[j]];
+  guard.push(92, 93, 94);
+  bits += "101";
+
+  var quiet = 9, svg = document.getElementById("ean"), out = "";
+  for (var k = 0; k < bits.length; k++) {
+    if (bits[k] !== "1") continue;
+    var h = guard.indexOf(k) >= 0 ? 56 : 50;
+    out += '<rect x="' + (quiet + k) + '" y="2" width="1" height="' + h + '"/>';
+  }
+  function t(x, s, anchor) { return '<text x="' + x + '" y="62" text-anchor="' + anchor + '">' + s + "</text>"; }
+  out += t(quiet - 2, code[0], "end") + t(quiet + 24, code.slice(1, 7), "middle") + t(quiet + 70, code.slice(7), "middle");
+  svg.innerHTML = out;
+})();
+</script>
+</body>
+</html>
