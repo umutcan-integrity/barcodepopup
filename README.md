@@ -4,8 +4,10 @@ Eczane bilgisayarlarında çalışan, okutulan ilaca göre tamamlayıcı ürün 
 uyuşmazlıklarını hatırlatan Windows uygulaması.
 
 - **Tanıtım sitesi:** https://umutcan-integrity.github.io/barcodepopup/
-- **İndir (Windows 10/11, 64-bit):** [EczaneBarkodPopup-win-x64.exe](https://github.com/umutcan-integrity/barcodepopup/releases/latest/download/EczaneBarkodPopup-win-x64.exe)
+- **İndir (Windows 10/11, 64-bit):** [son sürüm](https://github.com/umutcan-integrity/barcodepopup/releases/latest) — dosya adında sürüm numarası bulunur, ör. `EczaneBarkodPopup-v2.1.0-win-x64.exe`
 - **Tüm sürümler:** [Releases](https://github.com/umutcan-integrity/barcodepopup/releases)
+
+Kurulu uygulama tepsi menüsündeki **Güncellemeleri denetle…** ile kendini günceller.
 
 İlk çalıştırmada Windows "bilgisayarınızı korudu" uyarısı gösterirse **Ek bilgi → Yine de çalıştır** seçin.
 

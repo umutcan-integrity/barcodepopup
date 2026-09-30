@@ -1,9 +1,10 @@
 name: Sürüm yayınla
 
 # yukleme/<sürüm> adlı bir branch'e dist/ klasöründe exe konup push edildiğinde exe'yi
-# o sürümün (ör. v2.0.0) indirme dosyası olarak yayınlar, ardından geçici branch'i siler.
-# Sitedeki indirme bağlantısı her zaman en son sürümü indirir:
-# https://github.com/umutcan-integrity/barcodepopup/releases/latest/download/EczaneBarkodPopup-win-x64.exe
+# o sürümün (ör. v2.1.0) indirme dosyası olarak yayınlar, ardından geçici branch'i siler.
+# dist/NOTES.md varsa sürüm notlarının başına eklenir (uygulamanın güncelleme penceresinde görünür).
+# Dosya adında sürüm bulunur: EczaneBarkodPopup-v2.1.0-win-x64.exe. Sitedeki indirme düğmesi ve
+# uygulamanın "Güncellemeleri denetle" özelliği son sürümün dosyasını GitHub API'sinden bulur.
 on:
   push:
     branches: ["yukleme/**"]
@@ -20,7 +21,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GH_TOKEN: ${{ github.token }}
-      EXE: dist/EczaneBarkodPopup-win-x64.exe
     steps:
       - uses: actions/checkout@v4
 
@@ -30,21 +30,30 @@ jobs:
           if ! [[ "$tag" =~ ^v[0-9]+\.[0-9]+\.[0-9]+([-.][0-9A-Za-z.-]+)?$ ]]; then
             echo "::error::Branch adı yukleme/v1.2.3 biçiminde olmalı: $GITHUB_REF_NAME"; exit 1
           fi
-          test -s "$EXE" || { echo "::error::$EXE bulunamadı"; exit 1; }
-          (cd dist && sha256sum EczaneBarkodPopup-win-x64.exe > SHA256SUMS.txt)
+          src=$(ls dist/*.exe 2>/dev/null | head -n 1)
+          test -s "$src" || { echo "::error::dist/ klasöründe exe bulunamadı"; exit 1; }
+          name="EczaneBarkodPopup-${tag}-win-x64.exe"
+          [ "$src" = "dist/$name" ] || mv "$src" "dist/$name"
+          EXE="dist/$name"
+          (cd dist && sha256sum "$name" > SHA256SUMS.txt)
+
+          {
+            if [ -f dist/NOTES.md ]; then cat dist/NOTES.md; echo; echo "---"; echo; fi
+            echo "**İndirin:** ${name} (Windows 10/11, 64-bit). Kurulum ve .NET gerekmez."
+            echo "Uygulama kuruluysa tepsi menüsündeki **Güncellemeleri denetle…** ile de güncelleyebilirsiniz."
+            echo
+            echo "İlk çalıştırmada Windows \"bilgisayarınızı korudu\" uyarısı gösterirse **Ek bilgi → Yine de çalıştır** seçin."
+            echo "Uyarı, dosyanın henüz dijital olarak imzalanmamış olmasından kaynaklanır."
+            echo
+            echo "Dosya doğrulaması için SHA256 değeri SHA256SUMS.txt içindedir."
+          } > notes.md
 
           if gh release view "$tag" >/dev/null 2>&1; then
             gh release upload "$tag" "$EXE" dist/SHA256SUMS.txt --clobber
+            gh release edit "$tag" --notes-file notes.md
           else
             gh release create "$tag" "$EXE" dist/SHA256SUMS.txt --target main \
-              --title "Eczane Barkod Popup $tag" --notes-file - <<'NOTES'
-          **İndirin:** EczaneBarkodPopup-win-x64.exe (Windows 10/11, 64-bit). Kurulum ve .NET gerekmez.
-
-          İlk çalıştırmada Windows "bilgisayarınızı korudu" uyarısı gösterirse **Ek bilgi → Yine de çalıştır** seçin.
-          Uyarı, dosyanın henüz dijital olarak imzalanmamış olmasından kaynaklanır.
-
-          Dosya doğrulaması için SHA256 değeri SHA256SUMS.txt içindedir.
-          NOTES
+              --title "Eczane Barkod Popup $tag" --notes-file notes.md
           fi
           echo "$tag yayınlandı"
 
